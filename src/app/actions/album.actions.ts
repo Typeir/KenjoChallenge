@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AnyAction } from 'redux';
 
 @Injectable()
-export default class AlbumActions {
+class AlbumActions {
   static SET_ALBUMS = 'SET_ALBUMS';
   static SET_NULL_ALBUMS = 'SET_NULL_ALBUMS';
 
@@ -13,3 +13,5 @@ export default class AlbumActions {
     return { type: AlbumActions.SET_NULL_ALBUMS };
   }
 }
+
+export default AlbumActions;
