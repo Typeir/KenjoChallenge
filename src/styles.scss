@@ -1,1 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
+@import "reset";
+@import "variables";
+@import "animations";
+@import url("https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Playfair+Display&display=swap");
+
+* {
+  box-sizing: border-box;
+  text-rendering: optimizeLegibility;
+  text-decoration: none;
+  font-family: Raleway, "Open Sans", sans-serif;
+  outline: none;
+}
+
+h2 {
+  font-size: 24px;
+  color: $gray_light;
+}

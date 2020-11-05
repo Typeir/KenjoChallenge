@@ -1,0 +1,12 @@
+@import "variables";
+
+#main {
+  background: $darker;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  .content {
+    padding: 1.6rem;
+    color: $white;
+  }
+}
