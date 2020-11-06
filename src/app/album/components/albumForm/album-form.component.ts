@@ -125,8 +125,6 @@ export class AlbumFormComponent implements OnInit, OnDestroy {
       return e._id !== this.album._id;
     });
 
-    console.log(filteredAlbums, this.album._id);
-
     this.form.setControl(
       'title',
       new FormControl(this.album.title, [
