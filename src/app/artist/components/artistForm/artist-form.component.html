@@ -13,18 +13,14 @@
           placeholder="birthDate"
           formControlName="birthdate"
         />
-        <p *ngIf="birthdate?.minDate || birthdate?.maxDate">
-          year must be between 1909 and 2030
-        </p>
+        <p *ngIf="birthdate?.errors">year must be between 1909 and 2030</p>
         <input
           type="date"
           placeholder="deathDate"
           formControlName="deathDate"
           value="12/22/23"
         />
-        <p *ngIf="deathDate?.minDate || deathDate?.maxDate">
-          year must be between 1909 and 2030
-        </p>
+        <p *ngIf="deathDate?.errors">year must be between 1909 and 2030</p>
 
         <input
           type="text"
