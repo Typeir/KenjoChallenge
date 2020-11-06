@@ -1,1 +1,22 @@
-<p>album works!</p>
+<section id="album">
+  <ng-container *ngIf="albums?.length > 0; else elseTemplate">
+    <ul class="albums">
+      <li *ngFor="let album of albums; let i = index">
+        <app-album-item [album]="album" [index]="i"></app-album-item>
+      </li>
+    </ul>
+  </ng-container>
+  <ng-template #elseTemplate>
+    <div class="no-content">
+      <h2>There are no albums</h2>
+    </div>
+  </ng-template>
+</section>
+<button
+  class="primary"
+  [routerLink]="['/albums', 'new']"
+  (click)="stopPropagation($event)"
+>
+  Create New album
+</button>
+<router-outlet></router-outlet>

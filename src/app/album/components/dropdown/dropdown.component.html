@@ -1,0 +1,26 @@
+<div class="dropdown__container">
+  <input
+    type="text"
+    class="dropdown__input"
+    value="{{ selected?.text }}"
+    placeholder="artist"
+    readonly
+    (click)="$event.stopPropagation(); open = !open"
+  />
+  <div
+    class="dropdown__body"
+    [ngClass]="{ open: open }"
+    (clickOutside)="clickOut()"
+  >
+    <ul>
+      <li *ngFor="let item of items; let i = index">
+        <p
+          class="dropdown__body--option"
+          (click)="this.value = item.value; this.clickOut()"
+        >
+          {{ item.text }}
+        </p>
+      </li>
+    </ul>
+  </div>
+</div>

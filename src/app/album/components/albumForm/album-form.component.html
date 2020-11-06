@@ -1,0 +1,39 @@
+<div class="album__form">
+  <ng-container *ngIf="album">
+    <div class="album__form--body" (clickOutside)="goBack()">
+      <img
+        class="album__form--cover"
+        src="{{ coverUrl || '/assets/img/albumPlaceHolder.png' }}"
+        alt="album cover for {{ album.title }}"
+      />
+      <form [formGroup]="form">
+        <input type="text" placeholder="title" formControlName="title" />
+        <p *ngIf="title?.errors && title?.value?.length">
+          An album with that name already exists
+        </p>
+        <input type="text" placeholder="genre" formControlName="genre" />
+        <input type="number" placeholder="year" formControlName="year" />
+        <p *ngIf="year?.invalid">year must be between 1909 and 2030</p>
+        <input
+          type="text"
+          placeholder="cover(Url)"
+          formControlName="coverUrl"
+        />
+        <app-dropdown [items]="artists" [(value)]="artistId"></app-dropdown>
+        <div class="album__form--controls">
+          <button class="secondary__ghost" (click)="goBack()">Cancel</button
+          ><button
+            [ngClass]="{ disabled: form.invalid }"
+            class="primary"
+            (click)="save()"
+          >
+            Save
+          </button>
+        </div>
+        <div *ngIf="album._id" class="album__form--controls">
+          <button class="secondary__ghost" (click)="delete()">Delete</button>
+        </div>
+      </form>
+    </div>
+  </ng-container>
+</div>

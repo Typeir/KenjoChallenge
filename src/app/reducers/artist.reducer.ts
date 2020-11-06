@@ -7,7 +7,7 @@ export const ArtistReducer: Reducer<any> = (
 ): any => {
   switch (action.type) {
     case ArtistActions.SET_ARTISTS:
-      return action.payload;
+      return action.value;
   }
   return lastState;
 };

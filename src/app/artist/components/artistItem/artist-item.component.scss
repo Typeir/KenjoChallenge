@@ -1,0 +1,20 @@
+@import "variables";
+
+.artist__item {
+  margin-bottom: 1.6rem;
+  &--cover {
+    transition: all 0.2s ease-in-out;
+    height: 14rem;
+    width: 14rem;
+    display: block;
+    margin-bottom: 0.8rem;
+    background: url("/assets/img/artistPlaceHolder.png");
+    background-position: center;
+    background-size: cover;
+  }
+  &:hover {
+    .artist__item--cover {
+      box-shadow: 0px 0px 0px 2px #249fde;
+    }
+  }
+}

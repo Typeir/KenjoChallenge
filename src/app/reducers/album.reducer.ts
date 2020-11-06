@@ -7,7 +7,7 @@ export const AlbumReducer: Reducer<any> = (
 ): any => {
   switch (action.type) {
     case AlbumActions.SET_ALBUMS:
-      return action.payload;
+      return action.value;
   }
   return lastState;
 };

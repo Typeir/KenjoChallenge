@@ -1,1 +1,22 @@
-<p>artist works!</p>
+<section id="artist">
+  <ng-container *ngIf="artists?.length > 0; else elseTemplate">
+    <ul class="artists">
+      <li *ngFor="let artist of artists; let i = index">
+        <app-artist-item [artist]="artist" [index]="i"></app-artist-item>
+      </li>
+    </ul>
+  </ng-container>
+  <ng-template #elseTemplate>
+    <div class="no-content">
+      <h2>There are no artists</h2>
+    </div>
+  </ng-template>
+</section>
+<button
+  class="primary"
+  [routerLink]="['/artists', 'new']"
+  (click)="stopPropagation($event)"
+>
+  Create New artist
+</button>
+<router-outlet></router-outlet>

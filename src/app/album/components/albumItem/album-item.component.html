@@ -1,0 +1,14 @@
+<div
+  *ngIf="album"
+  class="album__item"
+  (click)="stopPropagation($event)"
+  [routerLink]="['/albums/' + album._id]"
+>
+  <img
+    class="album__item--cover"
+    src="{{ album.coverUrl }}"
+    alt="album cover for {{ album.title }}"
+  />
+  <h4>{{ album.title }}</h4>
+  <h4>{{ album.genre }}</h4>
+</div>

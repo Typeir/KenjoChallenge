@@ -1,0 +1,13 @@
+<div
+  *ngIf="artist"
+  class="artist__item"
+  (click)="stopPropagation($event)"
+  [routerLink]="['/artists/' + artist._id]"
+>
+  <img
+    class="artist__item--cover"
+    src="{{ artist.photoUrl }}"
+    alt="artist cover for {{ artist.title }}"
+  />
+  <h4>{{ artist.name }}</h4>
+</div>

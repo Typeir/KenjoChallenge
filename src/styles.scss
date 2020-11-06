@@ -4,6 +4,12 @@
 @import url("https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Playfair+Display&display=swap");
 
+@mixin ghost($class) {
+  &__ghost {
+    @extend #{$class};
+    background: transparent;
+  }
+}
 * {
   box-sizing: border-box;
   text-rendering: optimizeLegibility;
@@ -15,4 +21,70 @@
 h2 {
   font-size: 24px;
   color: $gray_light;
+}
+
+img {
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+button {
+  user-select: none;
+  &[disabled],
+  &.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  &.primary {
+    color: $darkest;
+    border-radius: 2.2rem;
+    height: 2.2rem;
+    padding: 0 0.8rem;
+    border: 0px transparent solid;
+    background-color: $gray_light;
+    font-weight: 600;
+    cursor: pointer;
+    @include ghost(".primary");
+    &:hover {
+      transition: all 0.2s linear;
+      filter: opacity(0.75);
+    }
+  }
+
+  &.secondary {
+    color: $gray_light;
+    border-radius: 2.2rem;
+    height: 2.2rem;
+    padding: 0 0.8rem;
+    border: 2px $gray_light solid;
+    background-color: $gray_light;
+    font-weight: 600;
+    cursor: pointer;
+    @include ghost(".secondary");
+    &:hover {
+      background-color: transparentize($color: $gray_light, $amount: 0.95);
+      transition: all 0.2s linear;
+      filter: opacity(0.75);
+    }
+  }
+}
+
+input {
+  &[type="text"],
+  &[type="number"],
+  &[type="date"] {
+    color: $darkest;
+    border-radius: 1.2rem;
+    height: 1.6rem;
+    padding: 0 0.8rem;
+    border: 0px transparent solid;
+    background-color: $gray_light;
+    font-weight: 400;
+    &::placeholder {
+      transition: all 0.2s linear;
+      font-weight: 600;
+    }
+  }
 }

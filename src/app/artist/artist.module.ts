@@ -1,14 +1,23 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ClickOutsideModule } from 'ng-click-outside';
 import { ArtistRoutingModule } from './artist-routing.module';
 import { ArtistComponent } from './artist.component';
-import { ArtistService } from './artist.service';
+import { ArtistFormComponent } from './components/artistForm/artist-form.component';
+import { ArtistItemComponent } from './components/artistItem/artist-item.component';
 
 @NgModule({
-  declarations: [ArtistComponent],
-  imports: [CommonModule, ArtistRoutingModule, CommonModule, FormsModule],
-  providers: [HttpClient, ArtistService],
+  declarations: [ArtistComponent, ArtistFormComponent, ArtistItemComponent],
+  imports: [
+    CommonModule,
+    ArtistRoutingModule,
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    ClickOutsideModule,
+  ],
+  providers: [HttpClient],
 })
 export class ArtistModule {}

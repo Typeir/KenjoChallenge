@@ -1,0 +1,50 @@
+<div class="artist__form">
+  <ng-container *ngIf="artist">
+    <div class="artist__form--body" (clickOutside)="goBack()">
+      <img
+        class="artist__form--cover"
+        src="{{ photoUrl || '/assets/img/artistPlaceHolder.png' }}"
+        alt="artist cover for {{ artist.title }}"
+      />
+      <form [formGroup]="form">
+        <input type="text" placeholder="name" formControlName="name" />
+        <input
+          type="date"
+          placeholder="birthDate"
+          formControlName="birthdate"
+        />
+        <p *ngIf="birthdate?.minDate || birthdate?.maxDate">
+          year must be between 1909 and 2030
+        </p>
+        <input
+          type="date"
+          placeholder="deathDate"
+          formControlName="deathDate"
+          value="12/22/23"
+        />
+        <p *ngIf="deathDate?.minDate || deathDate?.maxDate">
+          year must be between 1909 and 2030
+        </p>
+
+        <input
+          type="text"
+          placeholder="photo(Url)"
+          formControlName="photoUrl"
+        />
+        <div class="artist__form--controls">
+          <button class="secondary__ghost" (click)="goBack()">Cancel</button
+          ><button
+            [ngClass]="{ disabled: form.invalid }"
+            class="primary"
+            (click)="save()"
+          >
+            Save
+          </button>
+        </div>
+        <div *ngIf="artist._id" class="artist__form--controls">
+          <button class="secondary__ghost" (click)="delete()">Delete</button>
+        </div>
+      </form>
+    </div>
+  </ng-container>
+</div>

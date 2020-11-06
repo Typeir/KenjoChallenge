@@ -9,6 +9,6 @@ import { AlbumEntity } from './album';
 })
 export class AlbumService extends EntityManager<DeepPartial<AlbumEntity>> {
   constructor(protected http: HttpClient) {
-    super('artist', http);
+    super('album', http);
   }
 }

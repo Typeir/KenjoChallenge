@@ -1,0 +1,23 @@
+@import "variables";
+
+#album {
+  width: 100%;
+  border-bottom: 1px $gray_light solid;
+  margin-bottom: 3.2rem;
+
+  .albums {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    @media only screen and (max-width: 600px) {
+      justify-content: space-around;
+    }
+    li {
+      margin: 0 0.8rem;
+    }
+  }
+}
+.no-content {
+  margin-bottom: 3.2rem;
+}

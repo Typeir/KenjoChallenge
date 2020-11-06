@@ -1,22 +1,13 @@
 <aside class="menu">
   <div class="menu__title">
     <img class="menu__title--header" src="assets/img/logo.png" />
-    <h3>{{ (router$ | async) || "/home" }}</h3>
+    <h3>{{ route }}</h3>
   </div>
   <ul class="menu__items">
-    <li [ngClass]="{ active: (router$ | async) === '' }" [routerLink]="['/']">
-      <h2>/home</h2>
-    </li>
-    <li
-      [ngClass]="{ active: (router$ | async) === '/albums' }"
-      [routerLink]="['/albums']"
-    >
+    <li [routerLinkActive]="'active'" [routerLink]="['/albums']">
       <h2>/albums</h2>
     </li>
-    <li
-      [ngClass]="{ active: (router$ | async) === '/artists' }"
-      [routerLink]="['/artists']"
-    >
+    <li [routerLinkActive]="'active'" [routerLink]="['/artists']">
       <h2>/artists</h2>
     </li>
   </ul>

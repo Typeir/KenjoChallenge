@@ -6,10 +6,10 @@ import {
 } from '@angular-redux/store';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ArtistService } from './artist/artist.service';
 import { MenuComponent } from './shared/components/menu/menu.component';
 import { AppState, INITIAL_STATE, rootReducer } from './store';
 
@@ -20,10 +20,9 @@ import { AppState, INITIAL_STATE, rootReducer } from './store';
     AppRoutingModule,
     NgReduxModule,
     NgReduxRouterModule.forRoot(),
-    FormsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [ArtistService],
   bootstrap: [AppComponent],
 })
 export class AppModule {

@@ -4,11 +4,12 @@ import { entityTypes } from './types';
 
 export class EntityManager<T> {
   route: string;
+  entity: T;
   constructor(protected entityType: entityTypes, protected http: HttpClient) {
     this.route = `${environment.api}/${entityType}`;
   }
 
-  async select(id?: string): Promise<T> {
+  async select(id?: string): Promise<T | T[]> {
     return await this.http
       .get<T>(`${this.route}${id ? `/${id}` : `s/all`}`)
       .toPromise<T>();
@@ -20,9 +21,12 @@ export class EntityManager<T> {
       .toPromise<T>();
   }
 
-  async create(values: T[] | T): Promise<T> {
+  async create(values: T[]): Promise<T> {
     return await this.http
-      .post<T>(`${this.route}${Array.isArray(values) ? 's' : ''}`, values)
+      .post<T>(
+        `${this.route}${values.length > 1 ? 's' : ''}`,
+        values.length > 1 ? values : values[0]
+      )
       .toPromise<T>();
   }
 
